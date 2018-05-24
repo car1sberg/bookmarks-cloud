@@ -1,7 +1,13 @@
 
-const initialState = {
+const initialState = [
+    { 
+        id: 1,
+        name: 'Volodymyr',
+        email: 'my_email@example.com',
+    }
+]
     
-}
+
 
 export default function bookmarks(state = initialState, action) {
 

@@ -1,0 +1,31 @@
+
+.App-logo {
+    height: 80px;
+    padding-left: 70px;
+}
+
+.logoBlock {
+    display: flex;
+}
+
+.bookmarks-header {
+    display: flex;
+    padding-left: 20px;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    background-color: #f3f1f1;
+}
+
+.bookmarks-field {
+    margin-right: 50px;
+    width: 600px;
+    color: #2b2f3e;
+    height: 37px;
+    font-size: 16px;
+    padding: 0 10px;
+    border-radius: 3px;
+    border: 1px solid #0dcc00;
+    outline: none;
+    box-sizing: border-box;
+}

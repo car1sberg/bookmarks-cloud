@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import { BrowserRouter as Router } from "react-router-dom";
 import './App.css';
+import BookmarksHeader from './components/Bookmarks-header';
+import Bookmarks from './components/Bookmarks';
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div className="App">
-          <header className="App-header">
-            <h1 className="App-title">Welcome to React</h1>
-            <img src={logo} className="App-logo" alt="logo" />
-          </header>
+          <BookmarksHeader />
+          <Bookmarks />
         </div>
       </Router>
     );

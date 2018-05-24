@@ -3,11 +3,21 @@ const initialState = [
     {
         id: 1,
         title: "Some good title",
+        url: '',
+        ObjectId: 1
     },
     {
         id: 2,
         title: "Another good title",
-    }
+        url: '',
+        ObjectId: 1
+    },
+    {
+        id: 3,
+        title: "One more good title",
+        url: '',
+        ObjectId: 1
+    },
 ]
 
 const ADD_BOOKMARK = 'ADD_BOOKMARK';

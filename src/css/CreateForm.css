@@ -1,0 +1,23 @@
+
+.create-form-block {
+    display: flex;
+    /* justify-content: center; */
+    width: 600px;
+    height: 200px;
+    background-color: white;
+    padding: 20px 15px 20px 25px;
+    box-shadow: 0px 0px 5px gray;
+    margin-bottom: 50px;
+    margin-top: 15px;
+}
+
+.create-title {
+    margin-top: 30px;
+    padding-left: 30px;
+    font-weight: 600;
+}
+
+.title-block, .url-block {
+    display: flex;
+    flex-direction: column;
+}

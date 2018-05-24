@@ -1,0 +1,54 @@
+
+.main-block {
+    display: flex;
+    float: right;
+    flex-direction: column;
+    margin-right: 30px;
+}
+
+.bookmark-list {
+    width: 950px;
+    height: 300px;
+    overflow-y: auto;
+    background-color: white;
+    padding: 20px 15px 20px 25px;
+    box-shadow: 0px 0px 5px gray;
+    margin-top: 20px;
+}
+
+.bookmark-list-title {
+    padding-left: 30px;
+    font-weight: 600;   
+}
+
+.bookmark-list ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.bookmark-row {
+    color: rgb(43, 47, 62);
+    font-size: 16px;
+    position: relative;
+    display: flex;
+    min-height: 55px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(242, 242, 242);
+}
+
+.create-bookmark-link {
+    padding-left: 20px;
+    color: #0dcc00;
+    cursor: pointer;
+}
+
+.edit-bookmark {
+    padding-right: 20px;
+    color: #0dcc00;
+    cursor: pointer;
+}
+
+.edit-bookmark:hover, .create-bookmark-link:hover {
+    text-decoration: underline;
+}
