@@ -7,17 +7,17 @@ const EditForm = ({ cancel, update }) => {
     return(
         <Fragment>
             <span className="create-title">Edit</span>
-            <div className="create-form-block">
-                <form onSubmit={update}>
+            <div className="edit-form-block">
+                <form className="edit-form" onSubmit={update}>
                     <div className="title-block">
-                        <label for="title">Bookmark title</label>
-                        <input type="text" id="title" />
+                        <label className="edit-label" htmlFor="title">Bookmark title</label>
+                        <input className="edit-input" type="text" id="title" />
                     </div>
                     <div className="url-block">
-                        <label for="url">Bookmark URL</label>
-                        <input type="text" id="url" />
+                        <label className="edit-label" htmlFor="url">Bookmark URL</label>
+                        <input className="edit-input" type="text" id="url" />
                     </div>
-                    <div>
+                    <div className="btn-group">
                         <button onClick={cancel}>Cancel</button>
                         <input type="submit" value="Submit" />
                     </div>

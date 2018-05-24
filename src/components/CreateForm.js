@@ -10,11 +10,11 @@ const CreateForm = ({ cancel, create }) => {
             <div className="create-form-block">
                 <form onSubmit={create}>
                     <div className="title-block">
-                        <label for="title">Bookmark title</label>
+                        <label htmlFor="title">Bookmark title</label>
                         <input type="text" id="title" />
                     </div>
                     <div className="url-block">
-                        <label for="url">Bookmark URL</label>
+                        <label htmlFor="url">Bookmark URL</label>
                         <input type="text" id="url" />
                     </div>
                     <div>

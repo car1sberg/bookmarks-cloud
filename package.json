@@ -1,5 +1,5 @@
 {
-  "name": "tenant-cloud",
+  "name": "bookmarks-cloud",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
