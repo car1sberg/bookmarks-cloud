@@ -8,7 +8,7 @@ const CreateForm = ({ cancel, create }) => {
         <Fragment>
             <span className="create-title">Create</span>
             <div className="create-form-block">
-                <form>
+                <form onSubmit={create}>
                     <div className="title-block">
                         <label for="title">Bookmark title</label>
                         <input type="text" id="title" />
@@ -19,7 +19,7 @@ const CreateForm = ({ cancel, create }) => {
                     </div>
                     <div>
                         <button onClick={cancel}>Cancel</button>
-                        <button onClick={create}>Create</button>
+                        <input type="submit" value="Submit" />
                     </div>
                 </form>
             </div>

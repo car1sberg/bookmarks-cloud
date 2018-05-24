@@ -12,8 +12,13 @@ class Bookmarks extends Component {
         isCreating: false
     }
 
-    handleCreate() {
-        this.setState({ isCreating: true, isEditing: false })
+    startCreating() {
+        this.setState({ isEditing: false, isCreating: true })
+    }
+
+    handleCreate(e) {
+        e.preventDefault();
+        this.setState({ isCreating: false})
     }
 
     handleCancelCreating() {
@@ -24,11 +29,12 @@ class Bookmarks extends Component {
         this.setState({ isEditing: false })
     }
 
-    handleEdit() {
-        this.setState({ isEditing: true, isCreating: false })
+    startEditing() {
+        this.setState({ isCreating: false, isEditing: true})
     }
 
-    handleUpdate() {
+    handleUpdate(e) {
+        e.preventDefault();
         this.setState({ isEditing: false })
     }
 
@@ -48,7 +54,7 @@ class Bookmarks extends Component {
                                 <span>{bookmark.title}</span>
                                 <span 
                                     className="edit-bookmark"
-                                    onClick={this.handleEdit.bind(this)}
+                                    onClick={this.startEditing.bind(this)}
                                     >Edit
                                 </span>
                             </li>
@@ -57,12 +63,12 @@ class Bookmarks extends Component {
                 </div>
                 <p 
                     className="create-bookmark-link"
-                    onClick={this.handleCreate.bind(this)}
+                    onClick={this.startCreating.bind(this)}
                     >Create a bookmark
                 </p>
                 {isEditing &&
                     <EditForm 
-                        cancelEditing={this.handleEdit.bind(this)}
+                        cancel={this.handleCancelEditing.bind(this)}
                         update={this.handleUpdate.bind(this)}/>
                 }
                 {isCreating &&
@@ -80,22 +86,19 @@ export default withRouter(connect(
         bookmarks: state.bookmarks
     }),
     dispatch => ({
-        onAddBookmark: (itemTitle) => {
+        onAddBookmark: (bookmarkTitle, bookmarkUrl) => {
             const payload = {
                 id: Date.now(),
-                title: itemTitle,
-                comments: []
+                title: bookmarkTitle,
+                url: bookmarkUrl
             };
-            dispatch({ type: 'ADD_ITEM', payload })
-        },
-        onDeleteBookmark: (id) => {
-            dispatch({ type: 'DELETE_ITEM',  payload: id })
+            dispatch({ type: 'ADD_BOOKMARK', payload })
         },
         onEditBookmark: () => {
             const payload = {
                 isOpened: false
             }
-            dispatch({ type: 'IS_CLOSED',  payload })
+            dispatch({ type: 'EDIT_BOOKMARK',  payload })
         }
     })
 )(Bookmarks))
