@@ -1,11 +1,15 @@
 
 .main-block {
     display: flex;
-    float: right;
     flex-direction: column;
     margin-right: 30px;
 }
 
+@media (min-width: 900px) {
+    .main-block {
+        float: right;
+    }
+}
 .bookmark-list {
     width: 950px;
     height: 300px;
