@@ -58,7 +58,7 @@ class Bookmarks extends Component {
             bookmark.title.toLowerCase().includes(inputValue.trim().toLowerCase()));
 
         return(
-            <div className="main-block">
+            <main className="main-block">
                 <div className="bookmark-list">
                     <span className="bookmark-list-title">
                         {filteredBookmarks.length !== 0 ? 'Bookmark list' : 'Nothing was found :('}
@@ -96,7 +96,7 @@ class Bookmarks extends Component {
                         create={this.handleCreate.bind(this)}
                         cancel={this.handleCancelCreating.bind(this)}/>
                 }
-            </div>
+            </main>
         )
     }
 }

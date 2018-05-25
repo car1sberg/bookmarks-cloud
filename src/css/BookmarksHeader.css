@@ -6,6 +6,17 @@
 
 .logoBlock {
     display: flex;
+    align-items: center;
+}
+
+.logoBlock h3 {
+    padding-left: 70px;
+    cursor: pointer;
+}
+
+.logoBlock h3 > a {
+    text-decoration: none;
+    color: black;
 }
 
 .bookmarks-header {
