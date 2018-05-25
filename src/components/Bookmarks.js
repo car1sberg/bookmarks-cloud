@@ -55,8 +55,8 @@ class Bookmarks extends Component {
         const { bookmarks, inputValue } = this.props;
         const { isCreating, isEditing, currentBookmark } = this.state;
         const filteredBookmarks = bookmarks.filter((bookmark) => 
-            bookmark.title.toLowerCase().includes(inputValue.toLowerCase()));
-            
+            bookmark.title.toLowerCase().includes(inputValue.trim().toLowerCase()));
+
         return(
             <div className="main-block">
                 <div className="bookmark-list">
