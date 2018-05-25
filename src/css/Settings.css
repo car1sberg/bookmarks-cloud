@@ -1,0 +1,28 @@
+
+aside {
+    color: #0dcc00;
+    height: 100vh;
+    background: grey;
+    width: 250px;
+    box-sizing: border-box;
+    padding: 15px 10px;
+}
+
+.anchors {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.anchors span {
+    cursor: pointer;
+    padding-left: 15px;
+}
+
+.anchors span:hover {
+    text-decoration: underline;
+}
+
+.smile-icon {
+    width: 23px;
+}
