@@ -56,7 +56,7 @@ class Bookmarks extends Component {
         const { isCreating, isEditing, currentBookmark } = this.state;
         const filteredBookmarks = bookmarks.filter((bookmark) => 
             bookmark.title.toLowerCase().includes(inputValue.toLowerCase()));
-
+            
         return(
             <div className="main-block">
                 <div className="bookmark-list">
@@ -64,8 +64,8 @@ class Bookmarks extends Component {
                         {filteredBookmarks.length !== 0 ? 'Bookmark list' : 'Nothing was found :('}
                     </span>
                     <ul>
-                        {filteredBookmarks.map((bookmark,index) => 
-                            <li key={index} className="bookmark-row">
+                        {filteredBookmarks.map(bookmark => 
+                            <li key={bookmark.id} className="bookmark-row">
                                 <span>{bookmark.title}</span>
                                 <span 
                                     className="edit-bookmark"
