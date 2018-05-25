@@ -2,9 +2,8 @@
 .create-form-block {
     display: flex;
     width: 600px;
-    height: 400px;
+    height: 385px;
     background-color: white;
-    padding: 20px 15px 20px 25px;
     box-shadow: 0px 0px 5px gray;
     margin-bottom: 50px;
     margin-top: 15px;
@@ -16,7 +15,70 @@
     font-weight: 600;
 }
 
-.title-block, .url-block {
+.create-title-block, .create-url-block {
     display: flex;
     flex-direction: column;
+    margin-bottom: 40px;
+}
+
+.create-form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px 25px 0 50px;
+}
+
+.create-input {
+    color: #2b2f3e;
+    padding: 0 10px;
+    margin-top: 20px;
+    height: 50px;
+    font-size: 16px;
+    border-radius: 3px;
+    border: 1px solid #66afe9;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.create-input:focus {
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+}
+
+.create-label {
+    font-size: 15px;
+    color: slategrey;
+    font-weight: 600;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-group input, .btn-group button {
+    width: 82px;
+    height: 37px;
+    background: g;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: lowercase;
+}
+
+.btn-group input {
+    background: #0dcc00;
+    border: 1px solid #0dcc00;
+    color: white;
+}
+
+.btn-group button {
+    background: white;
+    border: 1px solid #bfbebe;
+    color: black;
+}
+
+.btn-group input:hover, .btn-group button:hover {
+    box-shadow: rgb(0, 0, 0) 0px 2px 2px;
+    transition: all 0.1s linear;
 }

@@ -9,7 +9,7 @@ import EditForm from './EditForm';
 class Bookmarks extends Component {
     state = {
         isEditing: false,
-        isCreating: false
+        isCreating: false,
     }
 
     startCreating() {
@@ -18,7 +18,14 @@ class Bookmarks extends Component {
 
     handleCreate(e) {
         e.preventDefault();
-        this.setState({ isCreating: false})
+        let title = this.createInputTitle.value;
+        let url = this.createInputUrl.value;
+        if (title.trim().length !== 0 && url.trim().length !== 0) {
+            this.props.onAddBookmark(title, url);
+            title = '';
+            url = '';
+            this.setState({ isCreating: false})
+        }
     }
 
     handleCancelCreating() {
@@ -29,32 +36,40 @@ class Bookmarks extends Component {
         this.setState({ isEditing: false })
     }
 
-    startEditing() {
-        this.setState({ isCreating: false, isEditing: true})
+    startEditing(bookmark) {
+        this.setState({ isCreating: false, isEditing: true, currentBookmark: bookmark})
     }
 
     handleUpdate(e) {
         e.preventDefault();
-        this.setState({ isEditing: false })
+        let id = this.state.currentBookmark.id;
+        let title = this.editInputTitle.value;
+        let url = this.editInputUrl.value;
+        if (title.trim().length !== 0 && url.trim().length !== 0) {
+            this.props.onEditBookmark(id, title, url)
+            this.setState({ isEditing: false })
+        }
     }
 
     render() {
-        const { bookmarks } = this.props;
-        const { isCreating, isEditing } = this.state;
+        const { bookmarks, inputValue } = this.props;
+        const { isCreating, isEditing, currentBookmark } = this.state;
+        const filteredBookmarks = bookmarks.filter((bookmark) => 
+            bookmark.title.toLowerCase().includes(inputValue.toLowerCase()));
 
         return(
             <div className="main-block">
                 <div className="bookmark-list">
                     <span className="bookmark-list-title">
-                        {bookmarks.length !== 0 ? 'Bookmark list' : 'Bookmark list is empty'}
+                        {filteredBookmarks.length !== 0 ? 'Bookmark list' : 'Nothing was found :('}
                     </span>
                     <ul>
-                        {bookmarks.map(bookmark => 
-                            <li key={bookmark.id} className="bookmark-row">
+                        {filteredBookmarks.map((bookmark,index) => 
+                            <li key={index} className="bookmark-row">
                                 <span>{bookmark.title}</span>
                                 <span 
                                     className="edit-bookmark"
-                                    onClick={this.startEditing.bind(this)}
+                                    onClick={this.startEditing.bind(this, bookmark)}
                                     >Edit
                                 </span>
                             </li>
@@ -68,11 +83,16 @@ class Bookmarks extends Component {
                 </p>
                 {isEditing &&
                     <EditForm 
+                        editInputTitle={input => this.editInputTitle = input}
+                        editInputUrl={input => this.editInputUrl = input}
+                        currentBookmark={currentBookmark}
                         cancel={this.handleCancelEditing.bind(this)}
                         update={this.handleUpdate.bind(this)}/>
                 }
                 {isCreating &&
                     <CreateForm 
+                        createInputTitle={(input) => this.createInputTitle = input}
+                        createInputUrl={(input) => this.createInputUrl = input}
                         create={this.handleCreate.bind(this)}
                         cancel={this.handleCancelCreating.bind(this)}/>
                 }
@@ -83,7 +103,8 @@ class Bookmarks extends Component {
 
 export default withRouter(connect(
     state => ({
-        bookmarks: state.bookmarks
+        bookmarks: state.bookmarks,
+        inputValue: state.inputValue
     }),
     dispatch => ({
         onAddBookmark: (bookmarkTitle, bookmarkUrl) => {
@@ -94,9 +115,11 @@ export default withRouter(connect(
             };
             dispatch({ type: 'ADD_BOOKMARK', payload })
         },
-        onEditBookmark: () => {
+        onEditBookmark: (bookmarkId, bookmarkTitle, bookmarkUrl) => {
             const payload = {
-                isOpened: false
+                id: bookmarkId,
+                title: bookmarkTitle,
+                url: bookmarkUrl
             }
             dispatch({ type: 'EDIT_BOOKMARK',  payload })
         }

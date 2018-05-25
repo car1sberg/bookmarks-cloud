@@ -3,19 +3,29 @@ import React, { Fragment } from 'react';
 import '../css/EditForm.css'
 
 
-const EditForm = ({ cancel, update }) => {
+const EditForm = ({ cancel, update, currentBookmark, editInputTitle, editInputUrl }) => {
     return(
         <Fragment>
-            <span className="create-title">Edit</span>
+            <span className="edit-title">Edit</span>
             <div className="edit-form-block">
                 <form className="edit-form" onSubmit={update}>
-                    <div className="title-block">
+                    <div className="edit-title-block">
                         <label className="edit-label" htmlFor="title">Bookmark title</label>
-                        <input className="edit-input" type="text" id="title" />
+                        <input 
+                            className="edit-input"
+                            ref={editInputTitle}
+                            defaultValue={currentBookmark.title}
+                            type="text"
+                            id="title" />
                     </div>
-                    <div className="url-block">
+                    <div className="edit-url-block">
                         <label className="edit-label" htmlFor="url">Bookmark URL</label>
-                        <input className="edit-input" type="text" id="url" />
+                        <input
+                            className="edit-input"
+                            ref={editInputUrl}
+                            defaultValue={currentBookmark.url}
+                            type="text"
+                            id="url" />
                     </div>
                     <div className="btn-group">
                         <button onClick={cancel}>Cancel</button>

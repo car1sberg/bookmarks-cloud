@@ -21,8 +21,8 @@ const initialState = [
 ]
 
 const ADD_BOOKMARK = 'ADD_BOOKMARK';
-const DELETE_BOOKMARK = 'DELETE_BOOKMARK';
 const EDIT_BOOKMARK = 'EDIT_BOOKMARK';
+const SEARCH_BOOKMARKS = 'SEARCH_BOOKMARKS';
 
 export default function bookmarks(state = initialState, action) {
 
@@ -32,15 +32,18 @@ export default function bookmarks(state = initialState, action) {
                ...state, 
                action.payload
             ];
-        case DELETE_BOOKMARK:
-           return state.filter(item => item.id !== action.payload);
-        case EDIT_BOOKMARK :
-            const active = state.find(item => item.id === action.itemId)
-            const comment = Object.assign({}, action.payload);
-
-            active.comments.push(comment);
-            return [...state];
-            
+        case EDIT_BOOKMARK:
+            const updated = state.map(bookmark => {
+                if (bookmark.id === action.payload.id) {
+                    return{...bookmark, ...action.payload}
+                }
+                return bookmark;
+            })
+            return updated;
+        case SEARCH_BOOKMARKS:
+            const filtered = state.filter(bookmark => 
+                bookmark.title.toLowerCase().includes(action.payload.toLowerCase()))
+            return filtered;
         default:    
             return state;
     }
