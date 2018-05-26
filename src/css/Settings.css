@@ -6,7 +6,6 @@
 aside {
     color: #0dcc00;
     height: 100vh;
-    /* background: #f3f1f1; */
     width: 230px;
     border-right: 1px solid black;
     box-sizing: border-box;
@@ -27,11 +26,6 @@ aside {
 
 .aside-list li > span {
     padding-left: 10px;
-    cursor: pointer;
-}
-
-.aside-list li > span:hover {
-    text-decoration: underline;
 }
 
 .aside-advanced {
@@ -50,4 +44,68 @@ aside {
 
 .smile-icon {
     width: 23px;
+}
+
+.settings-info {
+    padding: 10px 20px;
+    flex: 1;
+}
+
+.default-settings-block {
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid black;
+}
+
+.user-title {
+    font-weight: 600;
+}
+
+.user-avatar-block {
+    display: flex;
+}
+
+.user-profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #dedede;
+    padding: 20px;
+}
+
+.manage-people {
+    margin-top: 0;
+    border-top: none;
+    padding: 30px 20px;
+    border: 1px solid black;
+    color: #0dcc00;
+}
+
+.manage-people span:hover, .edit-user:hover, .aside-list li > span:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.avatar {
+    width: 70px;
+    height: 70px;
+    background-color: rgb(71, 86, 140);
+    border-radius: 50%;
+}
+
+.user-info {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding-left: 23px;
+}
+
+.user-email {
+    font-size: 14px;
+    color: gray;
+}
+
+.edit-user {
+    color: #0dcc00;
+    padding-right: 30px;
 }
