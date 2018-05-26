@@ -1,7 +1,7 @@
 
 .App-logo {
     height: 80px;
-    padding-left: 70px;
+    padding-left: 30px;
 }
 
 .logoBlock {
@@ -10,7 +10,7 @@
 }
 
 .logoBlock h3 {
-    padding-left: 70px;
+    padding-left: 30px;
     cursor: pointer;
 }
 
@@ -30,7 +30,9 @@
 
 .bookmarks-field {
     margin-right: 50px;
-    width: 600px;
+    /* width: 600px; */
+    flex: 1;
+    margin-left: 100px;
     color: #2b2f3e;
     height: 37px;
     font-size: 16px;

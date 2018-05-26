@@ -1,26 +1,51 @@
 
+.settings-main-block {
+    display: flex;
+}
+
 aside {
     color: #0dcc00;
     height: 100vh;
-    background: grey;
-    width: 250px;
+    /* background: #f3f1f1; */
+    width: 230px;
+    border-right: 1px solid black;
     box-sizing: border-box;
     padding: 15px 10px;
 }
 
-.anchors {
+.aside-list {
+    padding-left: 5px;
+    list-style-type: none;
+}
+
+.aside-list li {
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
-.anchors span {
+.aside-list li > span {
+    padding-left: 10px;
     cursor: pointer;
-    padding-left: 15px;
 }
 
-.anchors span:hover {
+.aside-list li > span:hover {
     text-decoration: underline;
+}
+
+.aside-advanced {
+    padding-top: 20px;
+}
+
+.aside-advanced ul {
+    padding-left: 10px;
+}
+
+.aside-title {
+    padding: 27px;
+    color: black;
+    font-weight: 600;
 }
 
 .smile-icon {

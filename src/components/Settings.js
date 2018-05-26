@@ -7,20 +7,41 @@ const smileIcon = <img src={smile} className="smile-icon" alt="smile" />
 
 const Settings = () => {
     return(
-        <div>
+        <div className="settings-main-block">
             <aside>
-                <div className="anchors">
-                    {smileIcon}
-                    <span>People</span>
+                <ul className="aside-list">
+                    <li>
+                        {smileIcon}
+                        <span>People</span>
+                    </li>
+                    <li>
+                        {smileIcon}
+                        <span>Appearence</span>
+                    </li>
+                </ul>
+                <div className="aside-advanced">
+                    <span className="aside-title">Advanced</span>
+                    <ul className="aside-list">
+                        <li>
+                            {smileIcon}
+                            <span>Printing</span>
+                        </li>
+                        <li>
+                            {smileIcon}
+                            <span>Reset</span>
+                        </li>
+                    </ul>
                 </div>
-                <div className="anchors">
-                    {smileIcon}
-                    <span>Appearence</span>
-                </div>
-                
-                
             </aside>
-            <div></div>
+            <div className="settings-info">
+                <span className="user-title">People</span>
+                <div>
+                    <div></div>
+                    <div>
+                        <span>Manage other people</span>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
