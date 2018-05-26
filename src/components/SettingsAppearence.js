@@ -11,8 +11,9 @@ class SettingsAppearence extends Component {
                     <span>Themes</span>
                     <div className="radio-buttons">
                         <form>
-                            <div>
+                            <div className="input-label">
                                 <input 
+                                    className="radio"
                                     type="radio" 
                                     id="white"
                                     name="theme"
@@ -20,8 +21,9 @@ class SettingsAppearence extends Component {
                                     checked />
                                 <label for="white">White</label>
                             </div>
-                            <div>
+                            <div className="input-label">
                                 <input 
+                                    className="radio"
                                     type="radio"
                                     id="black"
                                     name="theme"
