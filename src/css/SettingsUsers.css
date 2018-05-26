@@ -1,0 +1,62 @@
+
+.user-title {
+    font-weight: 600;
+}
+
+.user-avatar-block {
+    display: flex;
+    max-width: 350px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.user-profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f1f1f1;
+    padding: 20px;
+}
+
+.default-settings-block {
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid black;
+}
+
+.avatar {
+    width: 70px;
+    height: 70px;
+    background-color: rgb(71, 86, 140);
+    border-radius: 50%;
+}
+
+.edit-user {
+    color: #0dcc00;
+    padding-right: 30px;
+}
+
+.user-info {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding-left: 23px;
+}
+
+.user-email {
+    font-size: 14px;
+    color: gray;
+}
+
+.manage-people {
+    margin-top: 0;
+    border-top: none;
+    padding: 30px 20px;
+    border: 1px solid black;
+    color: #0dcc00;
+}
+
+.manage-people span:hover, .edit-user:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
