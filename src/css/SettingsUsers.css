@@ -14,7 +14,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #f1f1f1;
+    background: #ecedf1;
     padding: 20px;
 }
 
@@ -27,12 +27,12 @@
 .avatar {
     width: 70px;
     height: 70px;
-    background-color: rgb(71, 86, 140);
+    background-color: #47568c;
     border-radius: 50%;
 }
 
 .edit-user {
-    color: #0dcc00;
+    color: #00CC00;
     padding-right: 30px;
 }
 
@@ -45,7 +45,7 @@
 
 .user-email {
     font-size: 14px;
-    color: gray;
+    color: #666;
 }
 
 .manage-people {
@@ -53,7 +53,7 @@
     border-top: none;
     padding: 30px 20px;
     border: 1px solid black;
-    color: #0dcc00;
+    color: #00CC00;
 }
 
 .manage-people span:hover, .edit-user:hover {

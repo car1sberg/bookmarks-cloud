@@ -20,18 +20,16 @@
     margin-bottom: 20px;
 }
 .radio-buttons {
-    padding-top: 10px;
+    padding-top: 15px;
+    display: flex;
+    padding-left: 20px;
+    justify-content: space-between;
+    width: 300px;
+    align-items: center;
 }
 
 .radio-buttons input {
     outline: none;
-}
-
-.radio-buttons form {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 400px;
 }
 
 .input-label {
@@ -39,21 +37,20 @@
     align-items: center;
 }
 
-/* --------------------------------------- */
 .radio {
     position: absolute;
     z-index: -1;
     opacity: 0;
     margin: 10px 0 0 7px;
-  }
-  .radio + label {
+}
+.radio + label {
     font-size: 14px;
-    color: saddlebrown;
+    color: #33001a;
     position: relative;
     padding: 1px 0 0 35px;
     cursor: pointer;
-  }
-  .radio + label:before {
+}
+.radio + label:before {
     content: '';
     position: absolute;
     top: -3px;
@@ -63,8 +60,8 @@
     border: 1px solid #CDD1DA;
     border-radius: 50%;
     background: #FFF;
-  }
-  .radio + label:after {
+}
+.radio + label:after {
     content: '';
     position: absolute;
     top: 0px;
@@ -72,11 +69,155 @@
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background: rgb(24, 27, 20);
+    background: #181b14;
     box-shadow: inset 0 1px 1px rgba(0,0,0,.5);
     opacity: 0;
     transition: .2s;
-  }
-  .radio:checked + label:after {
+}
+.radio:checked + label:after {
     opacity: 1;
+}
+
+.settings-bookmarks {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px 20px 20px;
+}
+
+.settings-bookmarks-list {
+    list-style-type: none;
+}
+
+.settings-bookmarks-list li {
+    font-style: italic;
+    font-size: 14px;
+}
+
+.settings-addInput-block {
+    padding-left: 20px;
+}
+
+.settings-addInput-block input {
+    width: 600px;
+    color: #2b2f3e;
+    height: 37px;
+    font-size: 16px;
+    padding: 0 10px;
+    border-radius: 3px;
+    border: 1px solid #4c9aff;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.settings-addInput-block input:focus {
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+}
+
+.settings-addInput-block span {
+    padding-left: 20px;
+    color: #00CC00;
+}
+
+.settings-addInput-block span:hover {
+    color: #00CC00;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.checkbox-part {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border: 1px solid black;
+    border-top: none;
+    height: 60px;
+    align-items: flex-end;
+}
+
+input[type='checkbox'] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    margin: 10px 0 0 20px;
   }
+input[type='checkbox'] + label {
+    position: relative;
+    padding: 0 0 0 55px;
+    cursor: pointer;
+}
+
+input[type='checkbox'] + label:before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 0;
+    width: 50px;
+    height: 26px;
+    border-radius: 13px;
+    background: #CDD1DA;
+    box-shadow: inset 0 2px 3px rgba(0,0,0,.2);
+    transition: .2s;
+}
+input[type='checkbox'] + label:after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 2px;
+    width: 22px;
+    height: 22px;
+    border-radius: 10px;
+    background: rgb(255, 255, 255);;
+    box-shadow: 0 2px 5px rgba(0,0,0,.3);
+    transition: .2s;
+}
+input[type='checkbox']:checked + label:before {
+    background: rgb(54, 179, 126);
+    content: '✔';
+    padding-left: 8px;
+    padding-top: -3px;
+    color: white;
+    font-size: 25px;
+    margin-left: -8px;
+}
+input[type='checkbox']:checked + label:after {
+    left: 26px;
+}
+
+.fontSize-part, .zoom-part {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-top: none;
+}
+
+.font-dropdown {
+    display: flex;
+    width: 400px;
+    justify-content: space-between;
+    padding-right: 20px;
+    background: #f1f2f4;
+    padding: 10px;
+    align-items: center;
+}
+
+.font-dropdown > span {
+    color: #596780;
+    font-size: 14px;
+    padding-left: 5px;
+}
+
+.caret {
+    font-size: 25px;
+}
+
+.dropdown-btn-block {
+    display: flex;
+    width: 30px;
+    justify-content: center;
+}
+
+.dropdown-btn-block:hover {
+    cursor: pointer;
+}
