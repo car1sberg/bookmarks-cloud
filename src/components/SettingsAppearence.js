@@ -48,14 +48,56 @@ class SettingsAppearence extends Component {
                 </div>
                 <div className="fontSize-part">
                     <span>Font size</span>
-                    <div className="font-dropdown">
-                        <span>Medium</span>
-                        <div className="dropdown-btn-block">
+                    <div className="dropdown-block">
+                        <div className="font-dropdown">
+                            <div className="dropdown-title">
+                                <span>Medium</span>
+                            </div>
+                        </div>
+                        <div class="dropdown">
                             <i className="fa fa-caret-down caret"></i>
+                            <div class="dropdown-content-font">
+                                <ul>
+                                    <li>Small</li>
+                                    <li>Medium</li>
+                                    <li>Large</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div className="zoom-part"></div>
+                <div className="zoom-part">
+                    <span>Page zoom</span>
+                    <div className="dropdown-block">
+                        <div className="zoom-dropdown">
+                            <div className="dropdown-title">
+                                <span>100%</span>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <i className="fa fa-caret-down caret"></i>
+                            <div class="dropdown-content-zoom">
+                                <ul>
+                                    <li>90%</li>
+                                    <li>100%</li>
+                                    <li>110%</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="advanced-title">
+                    <h3>Advanced</h3>
+                </div>
+                <span className="printing-title">Printing</span>
+                <div className="printing-part">
+                    <span>Printers</span>
+                </div>
+                <span className="reset-title">Reset</span>
+                <div className="reset-part">
+                    <span className="reset-ref">Reset</span>
+                    <span className="reset-explanation">Restore settings to their original defaults</span>
+                </div>
             </div>
         )
     }
