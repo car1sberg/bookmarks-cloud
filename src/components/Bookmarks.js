@@ -52,7 +52,7 @@ class Bookmarks extends Component {
     }
 
     render() {
-        const { bookmarks, inputValue } = this.props;
+        const { bookmarks, inputValue, darkTheme } = this.props;
         const { isCreating, isEditing, currentBookmark } = this.state;
         const filteredBookmarks = bookmarks.filter((bookmark) => 
             bookmark.title.toLowerCase().includes(inputValue.trim().toLowerCase()));
@@ -66,7 +66,7 @@ class Bookmarks extends Component {
                     <ul>
                         {filteredBookmarks.map(bookmark => 
                             <li key={bookmark.id} className="bookmark-row">
-                                <span>{bookmark.title}</span>
+                                <span><a href={bookmark.url}>{bookmark.title}</a></span>
                                 <span 
                                     className="edit-bookmark"
                                     onClick={this.startEditing.bind(this, bookmark)}
@@ -104,7 +104,7 @@ class Bookmarks extends Component {
 export default withRouter(connect(
     state => ({
         bookmarks: state.bookmarks,
-        inputValue: state.inputValue
+        inputValue: state.inputValue,
     }),
     dispatch => ({
         onAddBookmark: (bookmarkTitle, bookmarkUrl) => {

@@ -5,9 +5,19 @@
 
 .user-avatar-block {
     display: flex;
-    max-width: 350px;
-    max-height: 200px;
-    overflow-y: auto;
+    flex-wrap: wrap;
+    width: 500px;
+    max-height: 100px;
+    word-wrap: break-word;
+}
+
+.avatar img {
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 50%;
+    object-fit: contain;
+    padding: 2px;
 }
 
 .user-profile {
@@ -22,13 +32,27 @@
     padding: 20px;
     margin-top: 20px;
     border: 1px solid black;
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+.default-settings-block ul {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+.default-settings-block li {
+    border-bottom: 1px solid lightgrey;
 }
 
 .avatar {
+    display: flex;
     width: 70px;
     height: 70px;
-    background-color: #47568c;
     border-radius: 50%;
+    align-items: center;
+    justify-content: center;
 }
 
 .edit-user {
@@ -49,6 +73,8 @@
 }
 
 .manage-people {
+    display: flex;
+    flex-direction: column;
     margin-top: 0;
     border-top: none;
     padding: 30px 20px;

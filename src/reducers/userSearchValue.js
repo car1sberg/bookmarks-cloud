@@ -1,13 +1,12 @@
 
-
 const initialState = ''
 
-const GET_VALUE = 'GET_VALUE';
+const FIND_USER = 'FIND_USER';
 
-export default function inputValue(state = initialState, action) {
+export default function userSearchValue(state = initialState, action) {
 
     switch (action.type) {
-        case GET_VALUE:
+        case FIND_USER:
            return action.payload;
         default:    
             return state;

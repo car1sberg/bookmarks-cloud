@@ -22,7 +22,6 @@ const initialState = [
 
 const ADD_BOOKMARK = 'ADD_BOOKMARK';
 const EDIT_BOOKMARK = 'EDIT_BOOKMARK';
-const SEARCH_BOOKMARKS = 'SEARCH_BOOKMARKS';
 
 export default function bookmarks(state = initialState, action) {
 
@@ -40,10 +39,6 @@ export default function bookmarks(state = initialState, action) {
                 return bookmark;
             })
             return updated;
-        case SEARCH_BOOKMARKS:
-            const filtered = state.filter(bookmark => 
-                bookmark.title.toLowerCase().includes(action.payload.toLowerCase()))
-            return filtered;
         default:    
             return state;
     }

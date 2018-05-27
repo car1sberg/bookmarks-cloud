@@ -1,14 +1,15 @@
 
-import React, { Fragment } from 'react';
+import React from 'react';
 import Bookmarks from './Bookmarks';
 import BookmarksHeader from './BookmarksHeader';
 
+
 const MainPage = () => {
     return(
-        <Fragment>
+        <div>
             <BookmarksHeader />
             <Bookmarks />
-        </Fragment>
+        </div>
     )
 }
 

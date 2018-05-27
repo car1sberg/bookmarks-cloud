@@ -1,33 +1,40 @@
 
+import defaultAvatar from '../assets/avatars/avatar1.png';
+
 const initialState = [
     { 
         id: 1,
         name: 'Volodymyr',
         email: 'my_email@example.com',
-        image: null,
-    }
+        image: defaultAvatar,
+    },
+    { 
+        id: 2,
+        name: 'Anonymous',
+        email: 'anon@gmail.com',
+        image: defaultAvatar,
+    },
 ]
     
+const EDIT_USER = 'EDIT_USER';
+const ADD_USER = 'ADD_USER';
 
-
-export default function bookmarks(state = initialState, action) {
-    // switch (action.type) {
-    //     case ADD_BOOKMARK:
-    //        return [
-    //            ...state, 
-    //            action.payload
-    //         ];
-    //     case DELETE_BOOKMARK:
-    //        return state.filter(item => item.id !== action.payload);
-    //     case EDIT_BOOKMARK :
-    //         const active = state.find(item => item.id === action.itemId)
-    //         const comment = Object.assign({}, action.payload);
-
-    //         active.comments.push(comment);
-    //         return [...state];
-            
-    //     default:    
-    //         return state;
-    // }
-    return state;
+export default function users(state = initialState, action) {
+    switch (action.type) {
+        case ADD_USER:
+           return [
+               ...state, 
+               action.payload
+            ];
+        case EDIT_USER:
+            const updated = state.map(user => {
+                if (user.id === action.payload.id) {
+                    return{...user, ...action.payload}
+                }
+                return updated;
+            })
+            return updated;
+        default:    
+            return state;
+    }
 }

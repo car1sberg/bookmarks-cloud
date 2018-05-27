@@ -1,7 +1,8 @@
 
 import React from 'react';
-import smile from '../icons/smile.svg';
+import smile from '../assets/icons/smile.svg';
 import '../css/SettingsAside.css';
+import { Link } from 'react-router-dom';
 
 const smileIcon = <img src={smile} className="smile-icon" alt="smile" />
 
@@ -11,25 +12,26 @@ const SettingsAside = () => {
             <ul className="aside-list">
                 <li>
                     {smileIcon}
-                    <span>People</span>
+                    <span><a href="#people">People</a></span>
                 </li>
                 <li>
                     {smileIcon}
-                    <span>Appearence</span>
+                    <span><a href="#reset">Appearence</a></span>
                     <div className="aside-advanced">
                         <span className="aside-title">Advanced</span>
                         <ul className="advanced-list">
                             <li>
                                 {smileIcon}
-                                <span>Printing</span>
+                                <span><a href="#print">Printing</a></span>
                             </li>
                             <li>
                                 {smileIcon}
-                                <span>Reset</span>
+                                <span><a href="#reset">Reset</a></span>
                             </li>
                         </ul>
                     </div>
                 </li>
+                <li><span><Link to="/">Exit</Link></span></li>
             </ul>
         </aside>
     )
