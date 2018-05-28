@@ -215,7 +215,7 @@ input[type='checkbox']:checked + label:after {
 
 .caret {
     color: #596780;
-    font-size: 25px;
+    font-size: 28px;
     padding-left: 10px;
     padding-top: 5px;
 }
@@ -223,8 +223,8 @@ input[type='checkbox']:checked + label:after {
 .dropdown {
     position: relative;
     display: inline-block;
-    height: 35px;
-    width: 35px;
+    height: 38px;
+    width: 38px;
     background: #f1f2f4;
 }
 

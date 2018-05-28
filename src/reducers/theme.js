@@ -1,5 +1,5 @@
 
-const initialState = false;
+const initialState = true;
 
 const SWITCH_THEME = 'SWITCH_THEME';
 

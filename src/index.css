@@ -10,10 +10,7 @@ a {
 }
 
 .darkTheme {
-  background: #282424 !important;
-  color: red;
-}
-
-#root {
-  
+  background: #282424;
+  color: #e84866;
+  /* color: #e03131; */
 }

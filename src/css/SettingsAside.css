@@ -1,6 +1,6 @@
 
 aside {
-    color: #00CC00;
+    /* color: #00CC00; */
     width: 230px;
     border-right: 1px solid black;
     box-sizing: border-box;
@@ -49,10 +49,11 @@ aside {
 
 .aside-title {
     padding: 27px;
-    color: black;
     font-weight: 600;
 }
 
 .smile-icon {
     width: 23px;
+    background: white;
+    border-radius: 50%;
 }

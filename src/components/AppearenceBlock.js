@@ -9,7 +9,6 @@ class AppearenceBlock extends Component {
         super(props)
         this.state = {
             showBookmarks: false,
-            isDark: false,
             addBookmarkInput: ''
         }
     }
@@ -20,13 +19,17 @@ class AppearenceBlock extends Component {
     }
 
     handleThemeToWhite() {
-        this.setState({ isDark: false })
-        this.props.onSwitchTheme(this.state.isDark);
+        const light = true;
+        this.props.onSwitchTheme(light);
+        document.getElementById('body').classList.remove('darkTheme');
     }
 
     handleThemeToBlack() {
-        this.setState({ isDark: true })
-        this.props.onSwitchTheme(this.state.isDark);
+        const light = false;
+        this.props.onSwitchTheme(light);
+        document.getElementById('body').classList.add('darkTheme');
+        document.getElementsByClassName('toggle-label')[0].style.color = 'inherit';
+        document.getElementsByClassName('toggle-label')[1].style.color = 'inherit';
     }
 
     handleAddBookmark() {
@@ -35,9 +38,8 @@ class AppearenceBlock extends Component {
     }
 
     render() {
-        const { showBookmarks, isDark } = this.state;
-        const { darkTheme, bookmarks } = this.props;
-        // console.log('dark from SETTINGS: ', darkTheme)
+        const { showBookmarks } = this.state;
+        const { lightTheme, bookmarks } = this.props;
 
         return(
             <Fragment>
@@ -49,22 +51,22 @@ class AppearenceBlock extends Component {
                         <div className="input-label" onClick={this.handleThemeToWhite.bind(this)}>
                             <input 
                                 className="radio"
-                                type="radio" 
-                                defaultChecked={!isDark}
+                                type="radio"
+                                defaultChecked={lightTheme}
                                 id="white"
                                 name="theme"
                                 value="white"/>
-                            <label htmlFor="white">White</label>
+                            <label className="toggle-label" htmlFor="white">White</label>
                         </div>
                         <div className="input-label" onClick={this.handleThemeToBlack.bind(this)}>
                             <input 
                                 className="radio"
-                                defaultChecked={isDark}
+                                defaultChecked={!lightTheme}
                                 type="radio"
                                 id="black"
                                 name="theme"
                                 value="black" />
-                            <label htmlFor="black">Black</label>
+                            <label className="toggle-label" htmlFor="black">Black</label>
                         </div>
                     </div>
                 </div>
@@ -95,7 +97,7 @@ class AppearenceBlock extends Component {
 
 export default withRouter(connect(
     state => ({
-        darkTheme: state.theme,
+        lightTheme: state.theme,
         bookmarks: state.bookmarks,
     }),
     dispatch => ({

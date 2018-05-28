@@ -52,7 +52,7 @@ class Bookmarks extends Component {
     }
 
     render() {
-        const { bookmarks, inputValue, darkTheme } = this.props;
+        const { bookmarks, inputValue } = this.props;
         const { isCreating, isEditing, currentBookmark } = this.state;
         const filteredBookmarks = bookmarks.filter((bookmark) => 
             bookmark.title.toLowerCase().includes(inputValue.trim().toLowerCase()));

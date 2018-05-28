@@ -22,7 +22,7 @@ class FontBlock extends Component {
 
     render() {
         const { font } = this.props;
-        let rootFont = document.getElementById('root').style.fontSize = font;
+        document.getElementById('root').style.fontSize = font;
 
         return(
             <div className="fontSize-part">

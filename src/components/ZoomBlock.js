@@ -22,7 +22,7 @@ class ZoomBlock extends Component {
 
     render() {
         const { zoom } = this.props;
-        let rootZoom = document.getElementById('root').style.zoom = zoom;
+        document.getElementById('root').style.zoom = zoom;
 
         return(
             <div className="zoom-part">
