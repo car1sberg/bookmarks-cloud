@@ -19,6 +19,7 @@ class SettingsHeader extends Component {
                 <div className="settings-input">
                     <input 
                         type="text"
+                        value={this.props.userSearchValue}
                         placeholder="Search..."
                         onChange={this.getValue.bind(this)}/>
                 </div>

@@ -52,7 +52,8 @@ class AppearenceBlock extends Component {
                             <input 
                                 className="radio"
                                 type="radio"
-                                defaultChecked={lightTheme}
+                                checked={lightTheme}
+                                onChange={this.handleThemeToWhite.bind(this)}
                                 id="white"
                                 name="theme"
                                 value="white"/>
@@ -61,7 +62,8 @@ class AppearenceBlock extends Component {
                         <div className="input-label" onClick={this.handleThemeToBlack.bind(this)}>
                             <input 
                                 className="radio"
-                                defaultChecked={!lightTheme}
+                                checked={!lightTheme}
+                                onChange={this.handleThemeToBlack.bind(this)}
                                 type="radio"
                                 id="black"
                                 name="theme"

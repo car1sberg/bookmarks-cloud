@@ -60,7 +60,7 @@ class SettingsUsers extends Component {
 
     render() {
         const { users, userSearchValue } = this.props;
-        const { isCreating, activeIndex, currentUser, avatarIndex } = this.state;
+        const { isCreating, activeIndex, currentUser } = this.state;
         const filteredUsers = users.filter(user => 
             user.name.toLowerCase().includes(userSearchValue.trim().toLowerCase()));
 
