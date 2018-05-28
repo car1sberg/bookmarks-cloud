@@ -4,7 +4,7 @@ import '../css/SettingsUsers.css';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import UserCreateForm from './UserCreateForm';
-// import UserEditForm from './UserEditForm';
+import UserEditForm from './UserEditForm';
 
 
 class SettingsUsers extends Component {
@@ -13,26 +13,27 @@ class SettingsUsers extends Component {
         this.state = {
             isCreating: false,
             isEditing: false,
-            currentUser: undefined
+            currentUser: undefined,
+            activeIndex: -1
         }
     }
 
-    handleEditUserOpen(user) {
-        this.setState({ currentUser: user, isEditing: true })
+    handleEditUserOpen(user, i) {
+        this.setState({ currentUser: user, isEditing: true, activeIndex: i })
     }
 
     handleEditUserClose() {
-        this.setState({ isEditing: false })
+        this.setState({ isEditing: false, activeIndex: -1 })
     }
 
-    handleUpdated(e) {
+    handleUpdate(e) {
         e.preventDefault();
         let id = this.state.currentUser.id;
         let name = this.editInputName.value;
         let email = this.editInputEmail.value;
         if (name.trim().length !== 0 && email.trim().length !== 0) {
             this.props.onEditUser(id, name, email)
-            this.setState({ isCreating: false })
+            this.setState({ isEditing: false })
         }
     }
 
@@ -57,7 +58,7 @@ class SettingsUsers extends Component {
 
     render() {
         const { users, userSearchValue } = this.props;
-        const { isCreating, isEditing, currentUser } = this.state;
+        const { isCreating, activeIndex, currentUser } = this.state;
         const filteredUsers = users.filter(user => 
             user.name.toLowerCase().includes(userSearchValue.trim().toLowerCase()));
 
@@ -66,25 +67,36 @@ class SettingsUsers extends Component {
                 <span className="user-title" id="people">People</span>
                     <div className="default-settings-block">
                         <ul>
-                            {filteredUsers.map(user =>  
-                                <li key={user.id}>
-                                    <div className="user-profile">
-                                        <div className="user-avatar-block">
-                                            <div className="avatar">
-                                                <img src={user.image} alt="Avatar default" />
+                            {filteredUsers.map((user, i) =>  {
+                                const current = activeIndex === i;
+
+                                return(
+                                    <li key={user.id}>
+                                        <div className="user-profile">
+                                            <div className="user-avatar-block">
+                                                <div className="avatar">
+                                                    <img src={user.image} alt="Avatar default" />
+                                                </div>
+                                                <div className="user-info">
+                                                    <span>{user.name}</span>
+                                                    <span className="user-email">{user.email}</span>
+                                                </div>
                                             </div>
-                                            <div className="user-info">
-                                                <span>{user.name}</span>
-                                                <span className="user-email">{user.email}</span>
-                                            </div>
+                                            <span 
+                                                className="edit-user"
+                                                onClick={this.handleEditUserOpen.bind(this, user, i)}
+                                                >Edit
+                                            </span>
                                         </div>
-                                        <span 
-                                            className="edit-user"
-                                            onClick={this.handleEditUserOpen.bind(this, user)}
-                                            >Edit
-                                        </span>
-                                    </div>
-                                </li>
+                                        {current && <UserEditForm 
+                                            currentUser={currentUser}
+                                            editInputName={input => this.editInputName = input}
+                                            editInputEmail={input => this.editInputEmail = input}
+                                            cancel={this.handleEditUserClose.bind(this)} 
+                                            update={this.handleUpdate.bind(this)}/>
+                                        }
+                                    </li>
+                                )}
                             )}
                         </ul>
                     </div>

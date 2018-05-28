@@ -1,29 +1,34 @@
 
 import React from 'react';
+import '../css/UserEditForm.css';
 
-const UserEditForm = () => {
+const UserEditForm = ({ editInputName, editInputEmail, cancel, update, currentUser }) => {
     return (
-        <div className="create-form-block">
-            <form className="create-form" onSubmit={create}>
-                <div className="create-title-block">
-                    <label className="create-label" htmlFor="title">Bookmark title</label>
+        <div className="editUser-form-block">
+            <form className="edit-form" onSubmit={update}>
+                <div className="edit-name-block">
+                    <label className="editUser-label" htmlFor="username">Username</label>
                     <input 
-                        className="create-input"
-                        ref={createInputTitle}
+                        className="editUser-input"
+                        ref={editInputName}
                         type="text"
-                        id="title" />
+                        maxLength={16}
+                        defaultValue={currentUser.name}
+                        id="username" />
                 </div>
-                <div className="create-url-block">
-                    <label className="create-label" htmlFor="url">Bookmark URL</label>
+                <div className="edit-email-block">
+                    <label className="editUser-label" htmlFor="email">Email</label>
                     <input 
-                        className="create-input"
-                        ref={createInputUrl}
+                        className="editUser-input"
+                        ref={editInputEmail}
                         type="text"
-                        id="url" />
+                        maxLength={25}
+                        defaultValue={currentUser.email}
+                        id="email" />
                 </div>
-                <div className="btn-group">
+                <div className="btnEditUser-group">
                     <button onClick={cancel}>Cancel</button>
-                    <input type="submit" value="Submit" />
+                    <input type="submit" value="Update" />
                 </div>
             </form>
         </div>

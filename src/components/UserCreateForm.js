@@ -19,6 +19,7 @@ class UserCreateForm extends Component {
                         <input 
                             className="createUser-input"
                             ref={createInputName}
+                            maxLength={16}
                             type="text"
                             id="title" />
                     </div>
@@ -27,6 +28,7 @@ class UserCreateForm extends Component {
                         <label className="createUser-label" htmlFor="url">Email</label>
                         <input 
                             className="createUser-input"
+                            maxLength={25}
                             ref={createInputEmail}
                             type="text"
                             id="url" />

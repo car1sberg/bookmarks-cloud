@@ -1,0 +1,118 @@
+
+
+.editUser-form-block {
+    display: flex;
+    width: 440px;
+    height: 235px;
+    background-color: white;
+    box-shadow: 0px 0px 5px gray;
+    margin: 10px auto;
+}
+
+.edit-title {
+    margin-top: 30px;
+    padding-left: 30px;
+    font-weight: 600;
+}
+
+.edit-name-block, .edit-email-block {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.edit-user {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px 25px 20px 25px;
+}
+
+.editUser-input {
+    color: #2b2f3e;
+    padding: 0 10px;
+    margin-top: 10px;
+    height: 34px;
+    font-size: 12px;
+    border-radius: 3px;
+    border: 1px solid #4c9aff;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.editUser-input:focus {
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+}
+
+.editUser-label {
+    font-size: 15px;
+    color: slategrey;
+    font-weight: 600;
+}
+
+.btnEditUser-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btnEditUser-group input, .btnEditUser-group button {
+    width: 74px;
+    height: 32px;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    text-transform: lowercase;
+}
+
+.btnEditUser-group input {
+    background: #00CC00;
+    border: 1px solid #00CC00;
+    color: white;
+}
+
+.btnEditUser-group button {
+    background: white;
+    border: 1px solid #bfbebe;
+}
+
+.btnEditUser-group input:hover, .btnEditUser-group button:hover {
+    box-shadow: rgb(0, 0, 0) 0px 2px 2px;
+    transition: all 0.1s linear;
+}
+
+.user-avatar-default ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.single-img-block img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    object-fit: contain;
+    padding: 2px;
+}
+
+.single-img-block {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.single-img-block img:hover {
+    border: 1px solid skyblue;
+    cursor: pointer;
+}
+
+.active {
+    background: #bfbebe;
+}

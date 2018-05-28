@@ -31,7 +31,7 @@ export default function users(state = initialState, action) {
                 if (user.id === action.payload.id) {
                     return{...user, ...action.payload}
                 }
-                return updated;
+                return user;
             })
             return updated;
         default:    
