@@ -18,7 +18,7 @@
 .edit-name-block, .edit-email-block {
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .editUser-input {
@@ -44,6 +44,8 @@
 }
 
 .btnEditUser-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -75,7 +77,7 @@
     transition: all 0.1s linear;
 }
 
-.user-avatar-default ul {
+.userEdit-avatar-default ul {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -84,7 +86,7 @@
     list-style-type: none;
 }
 
-.single-img-block img {
+.single-img-editBlock img {
     height: 100%;
     width: 100%;
     border-radius: 50%;
@@ -92,20 +94,16 @@
     padding: 2px;
 }
 
-.single-img-block {
+.single-img-editBlock {
     display: flex;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     align-items: center;
     justify-content: center;
 }
 
-.single-img-block img:hover {
+.single-img-editBlock img:hover {
     border: 1px solid skyblue;
     cursor: pointer;
-}
-
-.active {
-    background: #bfbebe;
 }

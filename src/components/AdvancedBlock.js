@@ -1,6 +1,8 @@
 
 import React, { Fragment } from 'react';
 
+const handlePrint = () => window.print();
+
 const AdvancedBlock = () => {
     return(
         <Fragment>
@@ -9,7 +11,7 @@ const AdvancedBlock = () => {
             </div>
             <span className="printing-title" id="print">Printing</span>
             <div className="printing-part">
-                <span>Printers</span>
+                <span onClick={handlePrint}>Printers</span>
             </div>
             <span className="reset-title" id="reset">
                 Reset

@@ -15,6 +15,7 @@ const EditForm = ({ cancel, update, currentBookmark, editInputTitle, editInputUr
                             className="edit-input"
                             ref={editInputTitle}
                             defaultValue={currentBookmark.title}
+                            maxLength={20}
                             type="text"
                             id="title" />
                     </div>
@@ -23,6 +24,7 @@ const EditForm = ({ cancel, update, currentBookmark, editInputTitle, editInputUr
                         <input
                             className="edit-input"
                             ref={editInputUrl}
+                            maxLength={30}
                             defaultValue={currentBookmark.url}
                             type="text"
                             id="url" />

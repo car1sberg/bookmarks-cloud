@@ -66,41 +66,41 @@ class SettingsUsers extends Component {
         return(
             <Fragment>
                 <span className="user-title" id="people">People</span>
-                    <div className="default-settings-block">
-                        <ul>
-                            {filteredUsers.map((user, i) =>  {
-                                const current = activeIndex === i;
+                <div className="default-settings-block">
+                    <ul>
+                        {filteredUsers.map((user, i) =>  {
+                            const current = activeIndex === i;
 
-                                return(
-                                    <li key={i}>
-                                        <div className="user-profile">
-                                            <div className="user-avatar-block">
-                                                <div className="avatar">
-                                                    <img src={user.image} alt="Avatar default" />
-                                                </div>
-                                                <div className="user-info">
-                                                    <span>{user.name}</span>
-                                                    <span className="user-email">{user.email}</span>
-                                                </div>
+                            return(
+                                <li key={i}>
+                                    <div className="user-profile">
+                                        <div className="user-avatar-block">
+                                            <div className="avatar">
+                                                <img src={user.image} alt="Avatar default" />
                                             </div>
-                                            <span 
-                                                className="edit-user"
-                                                onClick={this.handleEditUserOpen.bind(this, user, i)}
-                                                >Edit
-                                            </span>
+                                            <div className="user-info">
+                                                <span>{user.name}</span>
+                                                <span className="user-email">{user.email}</span>
+                                            </div>
                                         </div>
-                                        {current && <UserEditForm 
-                                            currentUser={currentUser}
-                                            editInputName={input => this.editInputName = input}
-                                            editInputEmail={input => this.editInputEmail = input}
-                                            cancel={this.handleEditUserClose.bind(this)} 
-                                            update={this.handleUpdate.bind(this)}/>
-                                        }
-                                    </li>
-                                )}
+                                        <span 
+                                            className="edit-user"
+                                            onClick={this.handleEditUserOpen.bind(this, user, i)}
+                                            >Edit
+                                        </span>
+                                    </div>
+                                    {current && <UserEditForm 
+                                        currentUser={currentUser}
+                                        editInputName={input => this.editInputName = input}
+                                        editInputEmail={input => this.editInputEmail = input}
+                                        cancel={this.handleEditUserClose.bind(this)} 
+                                        update={this.handleUpdate.bind(this)}/>
+                                    }
+                                </li>
                             )}
-                        </ul>
-                    </div>
+                        )}
+                    </ul>
+                </div>
                     <div className="manage-people">
                         <span onClick={this.handleAddUserOpen.bind(this)}>Manage other people</span>
                         {isCreating && 

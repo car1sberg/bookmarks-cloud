@@ -14,6 +14,7 @@ const CreateForm = ({ cancel, create, createInputTitle, createInputUrl }) => {
                         <input 
                             className="create-input"
                             ref={createInputTitle}
+                            maxLength={20}
                             type="text"
                             id="title" />
                     </div>
@@ -22,6 +23,7 @@ const CreateForm = ({ cancel, create, createInputTitle, createInputUrl }) => {
                         <input 
                             className="create-input"
                             ref={createInputUrl}
+                            maxLength={30}
                             type="text"
                             id="url" />
                     </div>

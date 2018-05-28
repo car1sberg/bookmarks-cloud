@@ -198,7 +198,7 @@ input[type='checkbox']:checked + label:after {
 
 .font-dropdown, .zoom-dropdown {
     display: flex;
-    width: 400px;
+    width: 300px;
     justify-content: space-between;
     padding-right: 20px;
     background: #f1f2f4;

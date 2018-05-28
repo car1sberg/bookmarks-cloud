@@ -1,6 +1,7 @@
 
 import React from 'react';
 import '../css/UserEditForm.css';
+import avatars from './UserAvatars';
 
 const UserEditForm = ({ editInputName, editInputEmail, cancel, update, currentUser }) => {
     return (
@@ -12,7 +13,7 @@ const UserEditForm = ({ editInputName, editInputEmail, cancel, update, currentUs
                         className="editUser-input"
                         ref={editInputName}
                         type="text"
-                        maxLength={16}
+                        maxLength={20}
                         defaultValue={currentUser.name}
                         id="username" />
                 </div>
@@ -22,9 +23,20 @@ const UserEditForm = ({ editInputName, editInputEmail, cancel, update, currentUs
                         className="editUser-input"
                         ref={editInputEmail}
                         type="text"
-                        maxLength={25}
+                        maxLength={30}
                         defaultValue={currentUser.email}
                         id="email" />
+                </div>
+                <div className="userEdit-avatar-default">
+                    <ul>
+                        {avatars.map((avatar, index) => 
+                            <li key={index}>
+                                <div className="single-img-editBlock">
+                                {avatar}
+                                </div>
+                            </li>
+                        )}
+                    </ul>
                 </div>
                 <div className="btnEditUser-group">
                     <button onClick={cancel}>Cancel</button>
