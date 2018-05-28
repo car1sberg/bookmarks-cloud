@@ -2,11 +2,16 @@
 import React, { Fragment, Component } from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
+import AppearenceBookmarks from './AppearenceBookmarks';
 
 class AppearenceBlock extends Component {
-    state = {
-        showBookmarks: false,
-        isDark: false
+    constructor(props) {
+        super(props)
+        this.state = {
+            showBookmarks: false,
+            isDark: false,
+            addBookmarkInput: ''
+        }
     }
 
     handleShowBookmarks() {
@@ -24,14 +29,20 @@ class AppearenceBlock extends Component {
         this.props.onSwitchTheme(this.state.isDark);
     }
 
+    handleAddBookmark() {
+        // this.props.onAddBookmark(this.state.addBookmarkInput)
+        // this.setState({  })
+    }
+
     render() {
         const { showBookmarks, isDark } = this.state;
-        const { darkTheme } = this.props;
-        console.log('dark from SETTINGS: ', darkTheme)
+        const { darkTheme, bookmarks } = this.props;
+        // console.log('dark from SETTINGS: ', darkTheme)
 
         return(
             <Fragment>
                 <span className="appearence-title" id="appearence">Appearence</span>
+                {/* switching themes */}
                 <div className="first-main-part">
                     <span>Themes</span>
                     <div className="radio-buttons">
@@ -57,16 +68,19 @@ class AppearenceBlock extends Component {
                         </div>
                     </div>
                 </div>
+                {/* bookmarks block */}
                 {showBookmarks &&
                     <div className="main-part settings-bookmarks">
-                        <span>Add bookmark</span>
-                        <ul className="settings-bookmarks-list"><li>Bookmark title</li></ul>
+                        <AppearenceBookmarks bookmarks={bookmarks} />
                         <div className="settings-addInput-block">
-                            <input type="text" />
-                            <span>Add</span>
+                            <input onChange={(e) => this.setState({ addBookmarkInput: e.target.value })} 
+                                type="text"
+                                value={this.state.addBookmarkInput} />
+                            <span onClick={this.handleAddBookmark.bind(this)}>Add</span>
                         </div>
                     </div>
                 }
+                {/* show bookmarks block */}
                 <div className="checkbox-part">
                     <span>Show bookmarks</span>
                     <div>
@@ -81,9 +95,18 @@ class AppearenceBlock extends Component {
 
 export default withRouter(connect(
     state => ({
-        darkTheme: state.theme
+        darkTheme: state.theme,
+        bookmarks: state.bookmarks,
     }),
     dispatch => ({
+        onAddBookmark: (bookmarkTitle) => {
+            const payload = {
+                id: Date.now(),
+                title: bookmarkTitle,
+                url: 'was not added'
+            };
+            dispatch({ type: 'ADD_BOOKMARK', payload })
+        },
         onSwitchTheme: (bool) => {
             const payload = bool;
             dispatch({ type: 'SWITCH_THEME', payload })

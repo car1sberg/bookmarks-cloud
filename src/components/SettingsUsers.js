@@ -19,6 +19,7 @@ class SettingsUsers extends Component {
     }
 
     handleEditUserOpen(user, i) {
+        console.log('user:', user, 'i - ', i)
         this.setState({ currentUser: user, isEditing: true, activeIndex: i })
     }
 
@@ -33,7 +34,7 @@ class SettingsUsers extends Component {
         let email = this.editInputEmail.value;
         if (name.trim().length !== 0 && email.trim().length !== 0) {
             this.props.onEditUser(id, name, email)
-            this.setState({ isEditing: false })
+            this.setState({ isEditing: false, activeIndex: -1 })
         }
     }
 
@@ -71,7 +72,7 @@ class SettingsUsers extends Component {
                                 const current = activeIndex === i;
 
                                 return(
-                                    <li key={user.id}>
+                                    <li key={i}>
                                         <div className="user-profile">
                                             <div className="user-avatar-block">
                                                 <div className="avatar">
@@ -139,7 +140,7 @@ export default withRouter(connect(
                 email: userEmail,
                 // image: userImage
             };
-            dispatch({ type: 'ADD_USER', payload })
+            dispatch({ type: 'EDIT_USER', payload })
         },
     })
 )(SettingsUsers));

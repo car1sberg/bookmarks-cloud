@@ -21,13 +21,6 @@
     margin-bottom: 20px;
 }
 
-.edit-user {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    padding: 20px 25px 20px 25px;
-}
-
 .editUser-input {
     color: #2b2f3e;
     padding: 0 10px;
