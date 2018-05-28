@@ -2,7 +2,9 @@
 aside {
     /* color: #00CC00; */
     width: 230px;
-    border-right: 1px solid black;
+    border: 1px solid black;
+    border-right: none;
+    border-top: none;
     box-sizing: border-box;
     padding: 15px 10px;
 }

@@ -5,7 +5,8 @@
     align-items: center;
     height: 75px;
     /* background: #f3f1f1; */
-    border-bottom: 1px solid black;
+    border: 1px solid black;
+    /* border-bottom: 1px solid black; */
     padding-right: 30px;
 }
 

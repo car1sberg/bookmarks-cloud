@@ -6,7 +6,7 @@ import avatars from './UserAvatars';
 const UserEditForm = ({ editInputName, editInputEmail, cancel, update, currentUser }) => {
     return (
         <div className="editUser-form-block">
-            <form className="edit-form" onSubmit={update}>
+            <form className="editUser-form" onSubmit={update}>
                 <div className="edit-name-block">
                     <label className="editUser-label" htmlFor="username">Username</label>
                     <input 
@@ -31,8 +31,10 @@ const UserEditForm = ({ editInputName, editInputEmail, cancel, update, currentUs
                     <ul>
                         {avatars.map((avatar, index) => 
                             <li key={index}>
-                                <div className="single-img-editBlock">
-                                {avatar}
+                                <div 
+                                    id="active-edit-ava"
+                                    className="single-img-editBlock">
+                                    {avatar}
                                 </div>
                             </li>
                         )}

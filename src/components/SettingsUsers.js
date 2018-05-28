@@ -14,7 +14,8 @@ class SettingsUsers extends Component {
             isCreating: false,
             isEditing: false,
             currentUser: undefined,
-            activeIndex: -1
+            activeIndex: -1,
+            // avatarIndex: 0
         }
     }
 
@@ -59,7 +60,7 @@ class SettingsUsers extends Component {
 
     render() {
         const { users, userSearchValue } = this.props;
-        const { isCreating, activeIndex, currentUser } = this.state;
+        const { isCreating, activeIndex, currentUser, avatarIndex } = this.state;
         const filteredUsers = users.filter(user => 
             user.name.toLowerCase().includes(userSearchValue.trim().toLowerCase()));
 
@@ -90,6 +91,7 @@ class SettingsUsers extends Component {
                                         </span>
                                     </div>
                                     {current && <UserEditForm 
+                                        // avatarIndex={avatarIndex}
                                         currentUser={currentUser}
                                         editInputName={input => this.editInputName = input}
                                         editInputEmail={input => this.editInputEmail = input}

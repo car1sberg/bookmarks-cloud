@@ -4,6 +4,8 @@
 }
 
 .settings-info {
+    border: 1px solid black;
+    border-top: none;
     padding: 10px 20px;
     flex: 1;
 }

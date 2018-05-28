@@ -199,10 +199,11 @@ input[type='checkbox']:checked + label:after {
 .font-dropdown, .zoom-dropdown {
     display: flex;
     width: 300px;
+    height: 38px;
     justify-content: space-between;
     padding-right: 20px;
     background: #f1f2f4;
-    padding: 10px;
+    padding: 0 10px;
     align-items: center;
     margin-right: 3px;
 }
@@ -215,7 +216,7 @@ input[type='checkbox']:checked + label:after {
 
 .caret {
     color: #596780;
-    font-size: 28px;
+    font-size: 26px;
     padding-left: 10px;
     padding-top: 5px;
 }
@@ -280,7 +281,7 @@ input[type='checkbox']:checked + label:after {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     padding:20px;
     border: 1px solid black;
 
