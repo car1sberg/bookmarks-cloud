@@ -4,26 +4,27 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+
 class ZoomBlock extends Component {
     // constructor()
     handleZoomOut() {
-        const val = '75%'
+        const val = 0.75
         this.props.onSwitchZoom(val);
     }
 
     handleZoomDefault() {
-        const val = '100%'
+        const val = 1
         this.props.onSwitchZoom(val);
     }
 
     handleZoomIn() {
-        const val = '125%'
+        const val = 1.25
         this.props.onSwitchZoom(val);
     }
 
     render() {
         const { zoom } = this.props;
-        document.getElementById('root').style.zoom = zoom;
+        document.getElementById('root').style.transform = `scale(${zoom})`;
 
         return(
             <div className="zoom-part">
@@ -31,7 +32,7 @@ class ZoomBlock extends Component {
                 <div className="dropdown-block">
                     <div className="zoom-dropdown">
                         <div className="dropdown-title">
-                            <span>{zoom}</span>
+                            <span>{zoom*100}%</span>
                         </div>
                     </div>
                     <div className="dropdown">
@@ -52,7 +53,7 @@ class ZoomBlock extends Component {
 
 ZoomBlock.propTypes = {
     onSwitchZoom: PropTypes.func,
-    zoom: PropTypes.string,
+    zoom: PropTypes.number,
 }
 
 export default withRouter(connect(

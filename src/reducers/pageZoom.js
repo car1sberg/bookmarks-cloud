@@ -1,5 +1,5 @@
 
-const initialState = '100%';
+const initialState = 1;
 
 const SET_ZOOM = 'SET_ZOOM';
 

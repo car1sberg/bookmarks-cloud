@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 const defaultConfig = {
     theme: true,
     font: 'Medium',
-    zoom: '100%',
+    zoom: 1,
     inputValue: ''
 }
 
