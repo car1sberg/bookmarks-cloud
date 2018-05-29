@@ -8,12 +8,12 @@ const initialState = [
     {
         id: 2,
         title: "GitHub",
-        url: 'https://google.com',
+        url: 'https://github.com',
     },
     {
         id: 3,
         title: "YouTube",
-        url: 'https://github.com',
+        url: 'https://youtube.com',
     },
 ]
 
