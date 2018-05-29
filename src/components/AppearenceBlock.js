@@ -2,6 +2,7 @@
 import React, { Fragment, Component } from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import AppearenceBookmarks from './AppearenceBookmarks';
 
 class AppearenceBlock extends Component {
@@ -98,6 +99,13 @@ class AppearenceBlock extends Component {
             </Fragment>
         )
     }
+}
+
+AppearenceBlock.proptypes = {
+    onAddBookmark: PropTypes.func,
+    onSwitchTheme: PropTypes.func,
+    bookmarks: PropTypes.array,
+    lightTheme: PropTypes.bool,
 }
 
 export default withRouter(connect(

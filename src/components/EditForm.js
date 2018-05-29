@@ -1,6 +1,7 @@
 
 import React, { Fragment } from 'react';
-import '../css/EditForm.css'
+import '../css/EditForm.css';
+import PropTypes from 'prop-types';
 
 
 const EditForm = ({ cancel, update, currentBookmark, editInputTitle, editInputUrl }) => {
@@ -37,6 +38,14 @@ const EditForm = ({ cancel, update, currentBookmark, editInputTitle, editInputUr
             </div>
         </Fragment>
     )
+}
+
+EditForm.propTypes = {
+    cancel: PropTypes.func,
+    update: PropTypes.func,
+    editInputTitle: PropTypes.func,
+    editInputUrl: PropTypes.func,
+    currentBookmark: PropTypes.object
 }
 
 export default EditForm;

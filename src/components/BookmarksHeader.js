@@ -5,6 +5,7 @@ import '../css/BookmarksHeader.css';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class BookmarksHeader extends Component {
 
@@ -33,6 +34,10 @@ class BookmarksHeader extends Component {
             </header>
         )
     }
+}
+
+BookmarksHeader.propTypes = {
+    onGetValue: PropTypes.func
 }
 
 export default withRouter(connect(

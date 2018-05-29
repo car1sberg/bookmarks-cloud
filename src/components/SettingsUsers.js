@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import UserCreateForm from './UserCreateForm';
 import UserEditForm from './UserEditForm';
 import { avatars } from './UserEditForm';
+import PropTypes from 'prop-types';
 
 
 class SettingsUsers extends Component {
@@ -124,6 +125,14 @@ class SettingsUsers extends Component {
             </Fragment>
         )
     }
+}
+
+SettingsUsers.propTypes = {
+    onAddUser: PropTypes.func,
+    onEditUser: PropTypes.func,
+    setDeafaultAvatar: PropTypes.func,
+    users: PropTypes.array,
+    userSearchValue: PropTypes.string
 }
 
 export default withRouter(connect(

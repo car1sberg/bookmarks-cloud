@@ -1,6 +1,7 @@
 
 import React, { Fragment } from 'react';
-import '../css/CreateForm.css'
+import '../css/CreateForm.css';
+import PropTypes from 'prop-types';
 
 
 const CreateForm = ({ cancel, create, createInputTitle, createInputUrl }) => {
@@ -35,6 +36,13 @@ const CreateForm = ({ cancel, create, createInputTitle, createInputUrl }) => {
             </div>
         </Fragment>
     )
+}
+
+CreateForm.propTypes = {
+    cancel: PropTypes.func,
+    create: PropTypes.func,
+    createInputTitle: PropTypes.func,
+    createInputUrl: PropTypes.func,
 }
 
 export default CreateForm;

@@ -1,5 +1,5 @@
 
-import React, { Fragment, Component } from 'react';
+import React, { Fragment } from 'react';
 import SettingsHeader from './SettingsHeader';
 import Settings from './Settings';
 

@@ -5,6 +5,7 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import CreateForm from './CreateForm';
 import EditForm from './EditForm';
+import PropTypes from 'prop-types';
 
 class Bookmarks extends Component {
     state = {
@@ -99,6 +100,13 @@ class Bookmarks extends Component {
             </main>
         )
     }
+}
+
+Bookmarks.proptypes = {
+    bookmarks: PropTypes.array,
+    inputValue: PropTypes.string,
+    onAddBookmark: PropTypes.func,
+    onEditBookmark: PropTypes.func,
 }
 
 export default withRouter(connect(

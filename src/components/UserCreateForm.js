@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import '../css/UserCreateForm.css';
+import PropTypes from 'prop-types';
 
 
 class UserCreateForm extends Component {
@@ -40,6 +41,13 @@ class UserCreateForm extends Component {
             </div>
         )
     }
+}
+
+UserCreateForm.propTypes = {
+    create: PropTypes.func,
+    cancel: PropTypes.func,
+    createInputName: PropTypes.func,
+    createInputEmail: PropTypes.func
 }
 
 export default UserCreateForm;

@@ -56,7 +56,10 @@ class AdvancedBlock extends Component {
 }
 
 AdvancedBlock.proptypes = {
-
+    onSwitchTheme: PropTypes.func,
+    onSwitchFont: PropTypes.func,
+    onSwitchZoom: PropTypes.func,
+    onFindUser: PropTypes.func,
 }
 
 export default withRouter(connect(

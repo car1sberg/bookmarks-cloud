@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import '../css/UserEditForm.css';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 
 const isActive = {
@@ -82,6 +83,15 @@ class UserEditForm extends Component {
             </div>
         )
     }
+}
+
+UserEditForm.propTypes = {
+    update: PropTypes.func,
+    cancel: PropTypes.func,
+    editInputEmail: PropTypes.func,
+    editInputName: PropTypes.func,
+    setAvatar: PropTypes.func,
+    currentUser: PropTypes.object
 }
 
 export default withRouter(connect(

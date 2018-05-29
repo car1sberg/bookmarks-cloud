@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class FontBlock extends Component {
 
@@ -47,6 +48,11 @@ class FontBlock extends Component {
             </div>
         )
     }
+}
+
+FontBlock.propTypes = {
+    onSwitchFont: PropTypes.func,
+    font: PropTypes.string
 }
 
 export default withRouter(connect(

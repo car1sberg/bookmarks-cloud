@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class ZoomBlock extends Component {
     // constructor()
@@ -47,6 +48,11 @@ class ZoomBlock extends Component {
             </div>
         )
     }
+}
+
+ZoomBlock.propTypes = {
+    onSwitchZoom: PropTypes.func,
+    zoom: PropTypes.string,
 }
 
 export default withRouter(connect(

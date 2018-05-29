@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import '../css/SettingsHeader.css';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class SettingsHeader extends Component {
 
@@ -31,6 +32,10 @@ class SettingsHeader extends Component {
             </div>
         )
     }
+}
+
+SettingsHeader.propTypes = {
+    onFindUser: PropTypes.func,
 }
 
 export default withRouter(connect(

@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const AppearenceBookmarks = ({ bookmarks }) => {
-    console.log(bookmarks)
     return(
         <div>
             <span>Add bookmark</span>
