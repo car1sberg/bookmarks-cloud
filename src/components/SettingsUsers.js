@@ -50,8 +50,9 @@ class SettingsUsers extends Component {
         let id = Date.now();
         let name = this.createInputName.value;
         let email = this.createInputEmail.value;
+        let image = avatars[0];
         if (name.trim().length !== 0 && email.trim().length !== 0) {
-            this.props.onAddUser(id, name, email)
+            this.props.onAddUser(id, name, email, image)
             this.setState({ isCreating: false })
         }
     }
@@ -132,11 +133,12 @@ export default withRouter(connect(
         activeAvatar: state.activeAvatar
     }),
     dispatch => ({
-        onAddUser: (userId, userName, userEmail) => {
+        onAddUser: (userId, userName, userEmail, userImage) => {
             const payload = {
                 id: userId,
                 name: userName,
-                email: userEmail
+                email: userEmail,
+                image: userImage
             };
             dispatch({ type: 'ADD_USER', payload })
         },

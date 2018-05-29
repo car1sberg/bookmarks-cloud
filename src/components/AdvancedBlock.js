@@ -2,6 +2,8 @@
 import React, { Fragment, Component } from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 
 const defaultConfig = {
@@ -14,9 +16,7 @@ const defaultConfig = {
 class AdvancedBlock extends Component {
 
     handlePrint() {
-        console.log('printing was sent')
-        const printing = true; 
-        this.props.onPrint(printing);
+        window.open('/').print()
     }
 
     handleResetSettings() {
@@ -35,11 +35,13 @@ class AdvancedBlock extends Component {
                 </div>
                 <span className="printing-title" id="print">Printing</span>
                 <div className="printing-part">
-                    <span onClick={this.handlePrint.bind(this)}>Printers</span>
+                    <span>
+                        <Link to="/" target="_blank" onClick={this.handlePrint.bind(this)}>
+                            Printers
+                        </Link>
+                    </span>
                 </div>
-                <span className="reset-title" id="reset">
-                    Reset
-                </span>
+                <span className="reset-title" id="reset">Reset</span>
                 <div className="reset-part">
                     <span
                         className="reset-ref"
@@ -51,6 +53,10 @@ class AdvancedBlock extends Component {
             </Fragment>
         )
     }
+}
+
+AdvancedBlock.proptypes = {
+
 }
 
 export default withRouter(connect(
@@ -76,10 +82,6 @@ export default withRouter(connect(
         onFindUser: (inputValue) => {
             const payload = inputValue;
             dispatch({ type: 'FIND_USER', payload })
-        },
-        onPrint: (value) => {
-            const payload = value;
-            dispatch({ type: 'START_PRINTING', payload })
         }
     })
 )(AdvancedBlock));

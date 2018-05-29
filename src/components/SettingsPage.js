@@ -1,7 +1,8 @@
 
-import React, { Fragment } from 'react';
+import React, { Fragment, Component } from 'react';
 import SettingsHeader from './SettingsHeader';
 import Settings from './Settings';
+
 
 const SettingsPage = () => {
     return(

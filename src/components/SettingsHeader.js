@@ -10,6 +10,11 @@ class SettingsHeader extends Component {
         this.props.onFindUser(e.target.value);
     }
 
+    componentWillUnmount() {
+        const refreshValue = '';
+        this.props.onFindUser(refreshValue);
+    }
+
     render() {
         return(
             <div className="settings-header">

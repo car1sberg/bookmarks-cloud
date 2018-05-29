@@ -12,6 +12,11 @@ class BookmarksHeader extends Component {
         this.props.onGetValue(e.target.value);
     }
 
+    componentWillUnmount() {
+        const refreshValue = '';
+        this.props.onGetValue(refreshValue);
+    }
+
     render() {
         return(
             <header className="bookmarks-header">
