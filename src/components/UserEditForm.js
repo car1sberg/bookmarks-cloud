@@ -1,52 +1,97 @@
 
-import React from 'react';
+import React, { Component } from 'react';
 import '../css/UserEditForm.css';
-import avatars from './UserAvatars';
+import { withRouter } from 'react-router';
+import { connect } from 'react-redux';
 
-const UserEditForm = ({ editInputName, editInputEmail, cancel, update, currentUser }) => {
-    return (
-        <div className="editUser-form-block">
-            <form className="editUser-form" onSubmit={update}>
-                <div className="edit-name-block">
-                    <label className="editUser-label" htmlFor="username">Username</label>
-                    <input 
-                        className="editUser-input"
-                        ref={editInputName}
-                        type="text"
-                        maxLength={20}
-                        defaultValue={currentUser.name}
-                        id="username" />
-                </div>
-                <div className="edit-email-block">
-                    <label className="editUser-label" htmlFor="email">Email</label>
-                    <input 
-                        className="editUser-input"
-                        ref={editInputEmail}
-                        type="text"
-                        maxLength={30}
-                        defaultValue={currentUser.email}
-                        id="email" />
-                </div>
-                <div className="userEdit-avatar-default">
-                    <ul>
-                        {avatars.map((avatar, index) => 
-                            <li key={index}>
-                                <div 
-                                    id="active-edit-ava"
-                                    className="single-img-editBlock">
-                                    {avatar}
-                                </div>
-                            </li>
-                        )}
-                    </ul>
-                </div>
-                <div className="btnEditUser-group">
-                    <button onClick={cancel}>Cancel</button>
-                    <input type="submit" value="Update" />
-                </div>
-            </form>
-        </div>
-    )
+
+const isActive = {
+    background: '#4aff64',
 }
 
-export default UserEditForm;
+function importAvatars(r) {
+    return r.keys().map(r);
+  }
+//   creating an arr of images taken from a folder using require.context API
+export const avatars = importAvatars(require.context('../assets/avatars/', false, /\.(png|jpe?g|svg)$/));
+
+class UserEditForm extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            activeIndex: 0,
+        }
+    }
+
+    handleSetCurrent(avatar, index) {
+        this.setState({ activeIndex: index})
+        this.props.setAvatar(avatar)
+    }
+
+    render() {
+        const { activeIndex } = this.state;
+        const { editInputName, editInputEmail, cancel, update, currentUser } = this.props;
+
+        return (
+            <div className="editUser-form-block">
+                <form className="editUser-form" onSubmit={update}>
+                    {/* Username section */}
+                    <div className="edit-name-block">
+                        <label className="editUser-label" htmlFor="username">Username</label>
+                        <input 
+                            className="editUser-input"
+                            ref={editInputName}
+                            type="text"
+                            maxLength={20}
+                            defaultValue={currentUser.name}
+                            id="username" />
+                    </div>
+                    {/* Email section */}
+                    <div className="edit-email-block">
+                        <label className="editUser-label" htmlFor="email">Email</label>
+                        <input 
+                            className="editUser-input"
+                            ref={editInputEmail}
+                            type="text"
+                            maxLength={30}
+                            defaultValue={currentUser.email}
+                            id="email" />
+                    </div>
+                    {/* Avatars section */}
+                    <div className="userEdit-avatar-default">
+                        <ul>
+                            {avatars.map((avatar, index) => 
+                                <li key={index} 
+                                    className="edit-li"
+                                    style={activeIndex === index ? isActive : null}>
+                                    <div 
+                                        onClick={this.handleSetCurrent.bind(this, avatar, index)}
+                                        id="active-edit-ava"
+                                        className="single-img-editBlock">
+                                        <img src={avatar} className="default-avatars" alt="Avatar" />
+                                    </div>
+                                </li>
+                            )}
+                        </ul>
+                    </div>
+                    <div className="btnEditUser-group">
+                        <button onClick={cancel}>Cancel</button>
+                        <input type="submit" value="Update" />
+                    </div>
+                </form>
+            </div>
+        )
+    }
+}
+
+export default withRouter(connect(
+    state => ({
+        userAvatar: state.activeAvatar
+    }),
+    dispatch => ({
+        setAvatar: (path) => {
+            const payload = path
+            dispatch({ type: 'SET_USER_AVATAR', payload })
+        },
+    })
+)(UserEditForm));

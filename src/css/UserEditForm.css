@@ -51,8 +51,8 @@
 }
 
 .btnEditUser-group {
-    margin-top: 10px;
     margin-bottom: 10px;
+    padding-top: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -93,6 +93,11 @@
     list-style-type: none;
 }
 
+.edit-li {
+    border-radius: 50%;
+    padding: 2px;
+}
+
 .single-img-editBlock img {
     height: 100%;
     width: 100%;
@@ -113,4 +118,8 @@
 .single-img-editBlock img:hover {
     border: 1px solid skyblue;
     cursor: pointer;
+}
+
+.active {
+    background: #bfbebe;
 }

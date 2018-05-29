@@ -7,13 +7,17 @@ import theme from './theme';
 import userSearchValue from './userSearchValue';
 import pageZoom from './pageZoom';
 import pageFont from './pageFont';
+import print from './print';
+import activeAvatar from './activeAvatar';
 
 export default combineReducers({
-    users,
+    activeAvatar,
     bookmarks,
     inputValue,
-    theme,
-    userSearchValue,
     pageZoom,
-    pageFont
+    pageFont,
+    print,
+    theme,
+    users,
+    userSearchValue
 })

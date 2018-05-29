@@ -1,8 +1,6 @@
 
 import React, { Component } from 'react';
 import '../css/UserCreateForm.css';
-import avatars from './UserAvatars';
-
 
 
 class UserCreateForm extends Component {
@@ -32,18 +30,6 @@ class UserCreateForm extends Component {
                             ref={createInputEmail}
                             type="text"
                             id="url" />
-                    </div>
-                    {/* icons group */}
-                    <div className="user-avatar-default">
-                        <ul>
-                            {avatars.map((avatar, index) => 
-                                <li key={index}>
-                                    <div className="single-img-block">
-                                    {avatar}
-                                    </div>
-                                </li>
-                            )}
-                        </ul>
                     </div>
                     {/* buttons */}
                     <div className="btnUser-group">

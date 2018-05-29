@@ -5,6 +5,7 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import UserCreateForm from './UserCreateForm';
 import UserEditForm from './UserEditForm';
+import { avatars } from './UserEditForm';
 
 
 class SettingsUsers extends Component {
@@ -15,17 +16,20 @@ class SettingsUsers extends Component {
             isEditing: false,
             currentUser: undefined,
             activeIndex: -1,
-            // avatarIndex: 0
         }
     }
 
+    setAvatarToDefault() {
+        this.props.setDeafaultAvatar(avatars[0]);
+    }
+
     handleEditUserOpen(user, i) {
-        console.log('user:', user, 'i - ', i)
         this.setState({ currentUser: user, isEditing: true, activeIndex: i })
     }
 
     handleEditUserClose() {
         this.setState({ isEditing: false, activeIndex: -1 })
+        this.setAvatarToDefault()
     }
 
     handleUpdate(e) {
@@ -33,9 +37,11 @@ class SettingsUsers extends Component {
         let id = this.state.currentUser.id;
         let name = this.editInputName.value;
         let email = this.editInputEmail.value;
+        let image = this.props.activeAvatar;
         if (name.trim().length !== 0 && email.trim().length !== 0) {
-            this.props.onEditUser(id, name, email)
+            this.props.onEditUser(id, name, email, image)
             this.setState({ isEditing: false, activeIndex: -1 })
+            this.setAvatarToDefault()
         }
     }
 
@@ -71,13 +77,13 @@ class SettingsUsers extends Component {
                     <ul>
                         {filteredUsers.map((user, i) =>  {
                             const current = activeIndex === i;
-
+                            // DISPLAYING USER LIST
                             return(
                                 <li key={i}>
                                     <div className="user-profile">
                                         <div className="user-avatar-block">
                                             <div className="avatar">
-                                                <img src={user.image} alt="Avatar default" />
+                                                <img src={user.image} alt="Avatar" />
                                             </div>
                                             <div className="user-info">
                                                 <span>{user.name}</span>
@@ -91,7 +97,6 @@ class SettingsUsers extends Component {
                                         </span>
                                     </div>
                                     {current && <UserEditForm 
-                                        // avatarIndex={avatarIndex}
                                         currentUser={currentUser}
                                         editInputName={input => this.editInputName = input}
                                         editInputEmail={input => this.editInputEmail = input}
@@ -123,26 +128,30 @@ class SettingsUsers extends Component {
 export default withRouter(connect(
     state => ({
         users: state.users,
-        userSearchValue: state.userSearchValue
+        userSearchValue: state.userSearchValue,
+        activeAvatar: state.activeAvatar
     }),
     dispatch => ({
         onAddUser: (userId, userName, userEmail) => {
             const payload = {
                 id: userId,
                 name: userName,
-                email: userEmail,
-                // image: userImage
+                email: userEmail
             };
             dispatch({ type: 'ADD_USER', payload })
         },
-        onEditUser: (userId, userName, userEmail) => {
+        onEditUser: (userId, userName, userEmail, userImage) => {
             const payload = {
                 id: userId,
                 name: userName,
                 email: userEmail,
-                // image: userImage
+                image: userImage
             };
             dispatch({ type: 'EDIT_USER', payload })
+        },
+        setDeafaultAvatar: (path) => {
+            const payload = path
+            dispatch({ type: 'SET_USER_AVATAR', payload })
         },
     })
 )(SettingsUsers));

@@ -1,5 +1,7 @@
 
-import defaultAvatar from '../assets/avatars/avatar1.png';
+import { avatars } from '../components/UserEditForm';
+
+const defaultAvatar = avatars[0];
 
 const initialState = [
     { 

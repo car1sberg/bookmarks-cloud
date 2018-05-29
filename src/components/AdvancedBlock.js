@@ -14,7 +14,9 @@ const defaultConfig = {
 class AdvancedBlock extends Component {
 
     handlePrint() {
-        window.print();
+        console.log('printing was sent')
+        const printing = true; 
+        this.props.onPrint(printing);
     }
 
     handleResetSettings() {
@@ -75,5 +77,9 @@ export default withRouter(connect(
             const payload = inputValue;
             dispatch({ type: 'FIND_USER', payload })
         },
+        onPrint: (value) => {
+            const payload = value;
+            dispatch({ type: 'START_PRINTING', payload })
+        }
     })
 )(AdvancedBlock));
