@@ -33,8 +33,10 @@ class AppearenceBlock extends Component {
     }
 
     handleAddBookmark() {
-        // this.props.onAddBookmark(this.state.addBookmarkInput)
-        // this.setState({  })
+        if (this.state.addBookmarkInput.trim().length !== 0 ) {
+            this.props.onAddBookmark(this.state.addBookmarkInput)
+            this.setState({ addBookmarkInput: '' })
+        }
     }
 
     render() {
@@ -77,7 +79,8 @@ class AppearenceBlock extends Component {
                     <div className="main-part settings-bookmarks">
                         <AppearenceBookmarks bookmarks={bookmarks} />
                         <div className="settings-addInput-block">
-                            <input onChange={(e) => this.setState({ addBookmarkInput: e.target.value })} 
+                            <input 
+                                onChange={(e) => this.setState({ addBookmarkInput: e.target.value })} 
                                 type="text"
                                 value={this.state.addBookmarkInput} />
                             <span onClick={this.handleAddBookmark.bind(this)}>Add</span>

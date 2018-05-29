@@ -85,10 +85,14 @@
 }
 
 .settings-bookmarks-list {
+    width: 300px;
+    max-height: 125px;
+    overflow-y: auto;
     list-style-type: none;
 }
 
 .settings-bookmarks-list li {
+    line-height: 1.8;
     font-style: italic;
     font-size: 14px;
 }

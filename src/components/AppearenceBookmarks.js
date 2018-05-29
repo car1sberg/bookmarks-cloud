@@ -1,17 +1,23 @@
 
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 const AppearenceBookmarks = ({ bookmarks }) => {
+    console.log(bookmarks)
     return(
-        <Fragment>
+        <div>
             <span>Add bookmark</span>
             <ul className="settings-bookmarks-list">
                 {bookmarks.map(bookmark => 
-                    <li key={bookmark.id}>{bookmark.name}</li>
+                    <li key={bookmark.id}>{bookmark.title}</li>
                 )}
             </ul>
-        </Fragment>
+        </div>
     )
+}
+
+AppearenceBookmarks.propTypes = {
+    bookmarks: PropTypes.array.isRequired 
 }
 
 export default AppearenceBookmarks;
