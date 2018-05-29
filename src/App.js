@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-          <Route exact path="/" component={MainPage}></Route>
+          <Route path="/bookmarks-cloud" component={MainPage}></Route>
           <Route path="/settings" component={SettingsPage}></Route>
         </Switch>
       </Router>

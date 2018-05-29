@@ -36,7 +36,7 @@ class AdvancedBlock extends Component {
                 <span className="printing-title" id="print">Printing</span>
                 <div className="printing-part">
                     <span>
-                        <Link to="/" target="_blank" onClick={this.handlePrint.bind(this)}>
+                        <Link to="/bookmarks-cloud" target="_blank" onClick={this.handlePrint.bind(this)}>
                             Printers
                         </Link>
                     </span>

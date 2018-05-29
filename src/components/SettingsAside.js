@@ -31,7 +31,7 @@ const SettingsAside = () => {
                         </ul>
                     </div>
                 </li>
-                <li><span><Link to="/">Exit</Link></span></li>
+                <li><span><Link to="/bookmarks-cloud">Exit</Link></span></li>
             </ul>
         </aside>
     )
