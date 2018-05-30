@@ -16,7 +16,7 @@ const defaultConfig = {
 class AdvancedBlock extends Component {
 
     handlePrint() {
-        window.open('/').print()
+        window.open('/bookmarks-cloud').print()
     }
 
     handleResetSettings() {
